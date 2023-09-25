@@ -28,29 +28,34 @@ def source_files() -> Generator[Path, None, None]:
     )
 
 
-def task(f: Task) -> Task:
-    tasks[f.__name__] = f
-    return f
+def task(*, name: str = ""):
+    def inner(f: Task) -> Task:
+        nonlocal name
+        tasks[name if name else f.__name__.replace("_", "-")] = f
+
+        return f
+
+    return inner
 
 
-@task
+@task()
 def check(*, fix: bool = False) -> None:
-    format()
+    format_()
     lint(fix=fix)
-    type()
+    type_()
 
 
-@task
+@task()
 def files() -> None:
     print("\n".join(str(path) for path in source_files()))
 
 
-@task
-def format() -> None:
+@task(name="format")
+def format_() -> None:
     sp.run(["poetry", "run", "black", *source_files()], check=False)
 
 
-@task
+@task()
 def lint(*, fix: bool = False) -> None:
     extra = ["--fix"] if fix else []
     args = [
@@ -66,7 +71,7 @@ def lint(*, fix: bool = False) -> None:
     )
 
 
-@task
+@task()
 def run() -> None:
     for action in ("scan", "send"):
         sp.run(
@@ -75,7 +80,7 @@ def run() -> None:
         )
 
 
-@task
+@task()
 def test() -> None:
     sp.run(
         ["poetry", "run", "tox", "run"],
@@ -83,8 +88,8 @@ def test() -> None:
     )
 
 
-@task
-def type() -> None:
+@task(name="type")
+def type_() -> None:
     args = [
         "poetry",
         "run",

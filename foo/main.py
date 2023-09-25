@@ -1,10 +1,12 @@
-#! /usr/bin/env python3
-
 from __future__ import annotations
 
 
+def bar() -> bool:
+    return True
+
+
 def main() -> None:
-    pass
+    print("Hello!")  # noqa: T201
 
 
 if __name__ == "__main__":

@@ -5,9 +5,6 @@ description = "Do a thing."
 authors = ["D. Bohdan <dbohdan@dbohdan.com>"]
 license = "Proprietary"
 readme = "README.md"
-packages = [
-  { include = "foo.py" }
-]
 # repository = "https://gitlab.com/dbohdan/foo"
 # keywords = [
 #   "foo",
@@ -40,7 +37,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 # [tool.poetry.scripts]
-# foo = 'foo:main'
+# foo = 'foo.main:main'
 
 [tool.pyright]
 pythonVersion = "3.8"
@@ -108,7 +105,6 @@ target-version = "py38"
 
 [tool.ruff.per-file-ignores]
 "tasks.py" = [
-  "A001",   # builtin-variable-shadowing
   "S603",   # subprocess-without-shell-equals-true
   "S607",   # start-process-with-partial-path
   "T201",   # print
