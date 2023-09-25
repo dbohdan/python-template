@@ -54,7 +54,7 @@ select = [
   "C4",    # flake8-comprehensions
   "C90",   # mccabe
   "COM",   # flake8-commas
-  # "CPY",   # flake8-copyright
+  # "CPY", # flake8-copyright
   "DJ",    # flake8-django
   # "D",   # pydocstyle
   "DTZ",   # flake8-datetimez
@@ -114,5 +114,10 @@ target-version = "py38"
   "S101",    # assert
 ]
 
+[tool.ruff.mccabe]
+max-complexity = 21
+
 [tool.ruff.pylint]
 max-args = 8
+max-branches = 20
+max-statements = 100
