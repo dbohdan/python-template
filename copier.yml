@@ -1,5 +1,5 @@
 # questions
-project_name:
+project_slug:
     type: str
     help: What is your project name?
 
