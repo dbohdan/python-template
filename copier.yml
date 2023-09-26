@@ -1,8 +1,7 @@
-# questions
 project_slug:
     type: str
-    help: What is your project name?
+    help: Project slug?
 
 package_name:
     type: str
-    help: What is your Python package name?
+    help: Package name?
