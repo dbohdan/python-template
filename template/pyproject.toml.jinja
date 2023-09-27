@@ -31,7 +31,6 @@ python = "^3.8"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
-click = "^8.1.0"
 pyright = "^1.1.324"
 pytest = "^7.4.0"
 nox = "*"
@@ -43,6 +42,17 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 {{ package_name }} = "{{ package_name }}.main:main"
+
+[tool.poe.env]
+"PYTHON_SOURCES" = "{{ package_name }} tests"
+
+[tool.poe.tasks]
+check = ["format", "lint", "type"]
+files = "echo ${PYTHON_SOURCES}"
+format = "black ${PYTHON_SOURCES}"
+lint = "ruff check ${PYTHON_SOURCES}"
+test = "pytest"
+type = "pyright ${PYTHON_SOURCES}"
 
 [tool.pyright]
 pythonVersion = "3.8"
