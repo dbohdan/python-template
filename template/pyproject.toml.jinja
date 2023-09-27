@@ -47,7 +47,8 @@ build-backend = "poetry.core.masonry.api"
 "PYTHON_SOURCES" = "{{ package_name }} tests"
 
 [tool.poe.tasks]
-check = ["format", "lint", "type"]
+check.sequence = ["format", "lint", "type"]
+check.ignore_fail = "return_non_zero"
 files.expr = '''
 "\n".join(
     str(item)
