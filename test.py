@@ -42,6 +42,7 @@ def main() -> None:
     try:
         run("poetry", "install")
         run("poetry", "run", "baz")
+        run("./tasks.py", "check")
     finally:
         run("poetry", "env", "remove", "--all")
 
