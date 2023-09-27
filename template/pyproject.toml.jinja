@@ -48,7 +48,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
 check = ["format", "lint", "type"]
-files = "echo ${PYTHON_SOURCES}"
+files.expr = '''
+"\n".join(
+    str(item)
+    for pkg in shlex.split(${PYTHON_SOURCES})
+    for item in sorted(pathlib.Path(pkg).glob("*.py"))
+)
+'''
+files.imports = ["pathlib", "shlex"]
 format = "black ${PYTHON_SOURCES}"
 lint = "ruff check ${PYTHON_SOURCES}"
 test = "pytest"
