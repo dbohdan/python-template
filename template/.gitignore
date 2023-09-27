@@ -1,4 +1,9 @@
-/attic
+*.pyc
 __pycache__
-/.ruff_cache
+
+/.*_cache
+/.nox
 /.tox
+/attic
+/build
+/dist
