@@ -7,6 +7,7 @@ from __future__ import annotations
 import argparse
 import os
 import re
+import shlex
 import subprocess as sp
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -18,6 +19,13 @@ if TYPE_CHECKING:
 
 
 tasks: dict[str, Task] = {}
+
+
+def run(*args: str | Path, check: bool = True, quiet: bool = False) -> None:
+    if not quiet:
+        print(">", shlex.join(str(arg) for arg in args))
+
+    sp.run(args, check=check)
 
 
 def source_files() -> Generator[Path, None, None]:
@@ -52,52 +60,39 @@ def files() -> None:
 
 @task(name="format")
 def format_() -> None:
-    sp.run(["poetry", "run", "black", *source_files()], check=False)
+    run("poetry", "run", "black", *source_files(), check=False)
 
 
 @task()
 def lint(*, fix: bool = False) -> None:
     extra = ["--fix"] if fix else []
-    args = [
+    run(
         "poetry",
         "run",
         "ruff",
         *extra,
         *source_files(),
-    ]
-    sp.run(
-        args,
         check=False,
     )
 
 
 @task()
-def run() -> None:
-    for action in ("scan", "send"):
-        sp.run(
-            ["poetry", "run", "python", "-m", "telegram_watch", action],
-            check=False,
-        )
-
-
-@task()
 def test() -> None:
-    sp.run(
-        ["poetry", "run", "tox", "run"],
-        check=False,
+    run(
+        "poetry",
+        "run",
+        "tox",
+        "run",
     )
 
 
 @task(name="type")
 def type_() -> None:
-    args = [
+    run(
         "poetry",
         "run",
         "pyright",
         *source_files(),
-    ]
-    sp.run(
-        args,
         check=False,
     )
 
