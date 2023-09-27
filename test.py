@@ -28,7 +28,11 @@ def main() -> None:
 
     os.chdir(root)
     if test_dir.is_dir():
-        shutil.rmtree(test_dir)
+        for item in test_dir.iterdir():
+            if item.is_dir():
+                shutil.rmtree(item)
+            else:
+                item.unlink()
 
     run(
         "copier",
