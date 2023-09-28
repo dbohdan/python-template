@@ -47,6 +47,8 @@ def main() -> None:
         run("poetry", "install")
         run("poetry", "run", "baz")
         run("poe", "check")
+        run("poe", "files")
+        run("poe", "test")
     finally:
         run("poetry", "env", "remove", "--all")
 
