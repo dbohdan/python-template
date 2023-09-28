@@ -47,14 +47,30 @@ build-backend = "poetry.core.masonry.api"
 [tool.poe.env]
 "PYTHON_SOURCES" = "{{ package_name }} scripts tests"
 
-[tool.poe.tasks]
-check.sequence = ["format", "lint", "type"]
-check.ignore_fail = "return_non_zero"
-files.script = "scripts.tasks:files"
-format = "black ${PYTHON_SOURCES}"
-lint = "ruff check ${PYTHON_SOURCES}"
-test = "pytest"
-type = "pyright ${PYTHON_SOURCES}"
+[tool.poe.tasks.check]
+sequence = ["format", "lint", "type"]
+help = "Run the formatter, then all static checks"
+ignore_fail = "return_non_zero"
+
+[tool.poe.tasks.files]
+script = "scripts.tasks:files"
+help = "Print the list of packages and files used for static checks"
+
+[tool.poe.tasks.format]
+cmd = "black ${PYTHON_SOURCES}"
+help = "Run Black"
+
+[tool.poe.tasks.lint]
+cmd = "ruff check ${PYTHON_SOURCES}"
+help = "Run Ruff"
+
+[tool.poe.tasks.test]
+cmd = "pytest"
+help = "Run Pytest (not through tox)"
+
+[tool.poe.tasks.type]
+cmd = "pyright ${PYTHON_SOURCES}"
+help = "Run Pyright"
 
 [tool.pyright]
 pythonVersion = "3.8"
