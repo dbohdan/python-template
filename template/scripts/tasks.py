@@ -6,12 +6,12 @@ from pathlib import Path
 
 
 def source_files() -> list[Path]:
-    srcs = os.environ["PYTHON_SOURCES"]
+    sources = os.environ["PYTHON_SOURCES"]
 
     files = []
-    for x in shlex.split(srcs):
+    for x in shlex.split(sources):
         path = Path(x)
-        if path.is_dir:
+        if path.is_dir():
             files.extend(path.glob("*.py"))
         else:
             files.append(path)
