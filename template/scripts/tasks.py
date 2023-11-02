@@ -9,10 +9,16 @@ def source_files() -> list[Path]:
     sources = os.environ["PYTHON_SOURCES"]
 
     files = []
-    for x in shlex.split(sources):
-        path = Path(x)
+    for item in shlex.split(sources):
+        path = Path(item)
+
         if path.is_dir():
-            files.extend(path.glob("*.py"))
+            files.extend(
+                Path(t[0]) / filename
+                for t in os.walk(path)
+                for filename in t[2]
+                if filename.endswith(".py")
+            )
         else:
             files.append(path)
 

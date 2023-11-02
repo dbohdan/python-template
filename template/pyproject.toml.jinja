@@ -18,7 +18,7 @@ classifiers = [
 ]
 
 packages = [
-  { include = "{{ package_name }}" },
+  { include = "{{ package_name }}", from = "src" },
 ]
 
 include = [
@@ -47,7 +47,7 @@ build-backend = "poetry.core.masonry.api"
 {{ package_name }} = "{{ package_name }}.main:main"
 
 [tool.poe.env]
-"PYTHON_SOURCES" = "noxfile.py {{ package_name }} scripts tests"
+"PYTHON_SOURCES" = "noxfile.py scripts src tests"
 
 [tool.poe.tasks.check]
 sequence = ["format", "lint", "type"]
@@ -56,7 +56,7 @@ ignore_fail = "return_non_zero"
 
 [tool.poe.tasks.files]
 script = "scripts.tasks:files"
-help = "Print the list of packages and files used for static checks"
+help = "List the individual files and files in packages used for static checks"
 
 [tool.poe.tasks.format]
 cmd = "ruff format ${PYTHON_SOURCES}"
