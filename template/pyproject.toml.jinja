@@ -47,7 +47,7 @@ build-backend = "poetry.core.masonry.api"
 {{ package_name }} = "{{ package_name }}.main:main"
 
 [tool.poe.env]
-"PYTHON_SOURCES" = "noxfile.py scripts src tests"
+"PYTHON_SOURCES" = "noxfile.py scripts/ src/ tests/"
 
 [tool.poe.tasks.check]
 sequence = ["format", "lint", "type"]
