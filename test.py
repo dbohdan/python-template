@@ -51,6 +51,11 @@ def main() -> None:
         run("poe", "files")
         run("poe", "test")
         run("poe", "zipapp")
+
+        run("git", "init")
+        run("poetry", "run", "pre-commit", "install")
+        run("git", "add", ".")
+        run("git", "commit", "-a", "-m", "Initial commit")
     finally:
         run("poetry", "env", "remove", "--all")
 
