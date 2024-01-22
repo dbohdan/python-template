@@ -46,6 +46,7 @@ def main() -> None:
     try:
         run("poetry", "install")
         run("poetry", "run", "baz")
+
         run("poe", "check")
         run("poe", "files")
         run("poe", "test")
@@ -53,8 +54,8 @@ def main() -> None:
     finally:
         run("poetry", "env", "remove", "--all")
 
-    run("tox", "run", "-e", "py38")
-    run("nox", "--pythons", "3.8")
+    run("tox", "run", "-e", "py39")
+    run("nox", "--pythons", "3.9")
 
 
 if __name__ == "__main__":
