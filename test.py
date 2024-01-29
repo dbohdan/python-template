@@ -53,7 +53,7 @@ def main() -> None:
         run("poe", "zipapp")
 
         run("git", "init")
-        run("poetry", "run", "pre-commit", "install")
+        run("pre-commit", "install")
         run("git", "add", ".")
         run("git", "commit", "-a", "-m", "Initial commit")
     finally:
