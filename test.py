@@ -59,8 +59,8 @@ def main() -> None:
     finally:
         run("poetry", "env", "remove", "--all")
 
-    run("tox", "run", "-e", "py39")
-    run("nox", "--pythons", "3.9")
+    run("tox")
+    run("nox", "--no-error-on-missing-interpreters")
 
 
 if __name__ == "__main__":
