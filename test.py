@@ -55,6 +55,8 @@ def main() -> None:
         run("git", "init")
         run("pre-commit", "install")
         run("git", "add", ".")
+        run("git", "config", "user.email", "user@example.com")
+        run("git", "config", "user.name", "User")
         run("git", "commit", "-a", "-m", "Initial commit")
     finally:
         run("poetry", "env", "remove", "--all")
