@@ -49,7 +49,7 @@ def main() -> None:
 
         run("poe", "check")
         run("poe", "files")
-        run("poe", "test")
+        run("poe", "test", "--cov")
         run("poe", "zipapp")
 
         run("git", "init")
