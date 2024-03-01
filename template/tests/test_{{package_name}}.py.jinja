@@ -1,10 +1,8 @@
 from __future__ import annotations
 
-import unittest
-
 import {{ package_name }}
 
 
-class Test{{ package_name | capitalize }}(unittest.TestCase):
+class Test{{ package_name | capitalize }}:
     def test_basic(self) -> None:
         assert {{ package_name }}.bar()
