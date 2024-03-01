@@ -53,6 +53,10 @@ quiet-level = 3
 [tool.poe.env]
 "PYTHON_SOURCES" = "noxfile.py scripts/ src/ tests/"
 
+[tool.poe.tasks."{{ package_name }}"]
+cmd = 'python -m "{{ package_name }}"'
+help = "Run {{ package_name }}"
+
 [tool.poe.tasks.check]
 sequence = ["format", "lint", "spell", "type"]
 help = "Run the formatter, then all static checks"
