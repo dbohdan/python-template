@@ -15,11 +15,11 @@ license = { text = "Proprietary" }
 #     "{{ project_slug }}",
 # ]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
-    "Environment :: Console",
-    "Operating System :: POSIX",
-    "Operating System :: Microsoft :: Windows",
-    "Topic :: Utilities",
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "Operating System :: POSIX",
+  "Operating System :: Microsoft :: Windows",
+  "Topic :: Utilities",
 ]
 
 [project.scripts]
@@ -27,20 +27,20 @@ baz = "baz.main:main"
 
 [dependency-groups]
 dev = [
-    "codespell>=2,<3",
-    "pyright==1.1.331",
-    "pytest>=8,<9",
-    "pytest-cov>=4.1.0,<5",
-    "ruff==0.2.1",
-    "shiv>=1.0.4,<2",
+  "codespell>=2,<3",
+  "pyright==1.1.331",
+  "pytest>=8,<9",
+  "pytest-cov>=4.1.0,<5",
+  "ruff==0.2.1",
+  "shiv>=1.0.4,<2",
 ]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "src/",
-    "scripts/",
-    "tox.ini",
-    "tests/",
+  "src/",
+  "scripts/",
+  "tox.ini",
+  "tests/",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -100,80 +100,80 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = [
-    "A",     # flake8-builtins
-    "AIR",   # Airflow
-    # "ANN", # flake8-annotations
-    "ARG",   # flake8-unused-arguments
-    "ASYNC", # flake8-async
-    "B",     # flake8-bugbear
-    "BLE",   # flake8-blind-except
-    "C4",    # flake8-comprehensions
-    "C90",   # mccabe
-    "COM",   # flake8-commas
-    # "CPY", # flake8-copyright
-    "DJ",    # flake8-django
-    # "D",   # pydocstyle
-    "DTZ",   # flake8-datetimez
-    "EM",    # flake8-errmsg
-    "ERA",   # eradicate
-    "E",     # pycodestyle
-    "EXE",   # flake8-executable
-    "FA",    # flake8-future-annotations
-    "FBT",   # flake8-boolean-trap
-    "FIX",   # flake8-fixme
-    "FLY",   # flynt
-    "F",     # Pyflakes
-    "G",     # flake8-logging-format
-    "ICN",   # flake8-import-conventions
-    "I",     # isort
-    "INP",   # flake8-no-pep420
-    "INT",   # flake8-gettext
-    "ISC",   # flake8-implicit-str-concat
-    "N",     # pep8-naming
-    "NPY",   # NumPy-specific rules
-    "PD",    # pandas-vet
-    "PERF",  # Perflint
-    "PGH",   # pygrep-hooks
-    "PIE",   # flake8-pie
-    "PL",    # Pylint
-    "PT",    # flake8-pytest-style
-    "PTH",   # flake8-use-pathlib
-    "PYI",   # flake8-pyi
-    "Q",     # flake8-quotes
-    "RET",   # flake8-return
-    "RSE",   # flake8-raise
-    "RUF",   # Ruff-specific rules
-    "S",     # flake8-bandit
-    "SIM",   # flake8-simplify
-    "SLF",   # flake8-self
-    "SLOT",  # flake8-slots
-    "T10",   # flake8-debugger
-    "T20",   # flake8-print
-    "TCH",   # flake8-type-checking
-    "TD",    # flake8-todos
-    "TID",   # flake8-tidy-imports
-    "TRY",   # tryceratops
-    "UP",    # pyupgrade
-    "W",     # pycodestyle
-    "YTT",   # flake8-2020
+  "A",     # flake8-builtins
+  "AIR",   # Airflow
+  # "ANN", # flake8-annotations
+  "ARG",   # flake8-unused-arguments
+  "ASYNC", # flake8-async
+  "B",     # flake8-bugbear
+  "BLE",   # flake8-blind-except
+  "C4",    # flake8-comprehensions
+  "C90",   # mccabe
+  "COM",   # flake8-commas
+  # "CPY", # flake8-copyright
+  "DJ",    # flake8-django
+  # "D",   # pydocstyle
+  "DTZ",   # flake8-datetimez
+  "EM",    # flake8-errmsg
+  "ERA",   # eradicate
+  "E",     # pycodestyle
+  "EXE",   # flake8-executable
+  "FA",    # flake8-future-annotations
+  "FBT",   # flake8-boolean-trap
+  "FIX",   # flake8-fixme
+  "FLY",   # flynt
+  "F",     # Pyflakes
+  "G",     # flake8-logging-format
+  "ICN",   # flake8-import-conventions
+  "I",     # isort
+  "INP",   # flake8-no-pep420
+  "INT",   # flake8-gettext
+  "ISC",   # flake8-implicit-str-concat
+  "N",     # pep8-naming
+  "NPY",   # NumPy-specific rules
+  "PD",    # pandas-vet
+  "PERF",  # Perflint
+  "PGH",   # pygrep-hooks
+  "PIE",   # flake8-pie
+  "PL",    # Pylint
+  "PT",    # flake8-pytest-style
+  "PTH",   # flake8-use-pathlib
+  "PYI",   # flake8-pyi
+  "Q",     # flake8-quotes
+  "RET",   # flake8-return
+  "RSE",   # flake8-raise
+  "RUF",   # Ruff-specific rules
+  "S",     # flake8-bandit
+  "SIM",   # flake8-simplify
+  "SLF",   # flake8-self
+  "SLOT",  # flake8-slots
+  "T10",   # flake8-debugger
+  "T20",   # flake8-print
+  "TCH",   # flake8-type-checking
+  "TD",    # flake8-todos
+  "TID",   # flake8-tidy-imports
+  "TRY",   # tryceratops
+  "UP",    # pyupgrade
+  "W",     # pycodestyle
+  "YTT",   # flake8-2020
 ]
 ignore = [
-    "COM812", # missing-trailing-comma
-    "ISC001", # single-line-implicit-string-concatenation
-    "PGH003", # blanket-type-ignore
+  "COM812", # missing-trailing-comma
+  "ISC001", # single-line-implicit-string-concatenation
+  "PGH003", # blanket-type-ignore
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "tasks.py" = [
-    "FBT001", # boolean-type-hint-positional-argument
-    "FBT002", # boolean-default-value-positional-argument
-    "S603",   # subprocess-without-shell-equals-true
-    "S607",   # start-process-with-partial-path
-    "T201",   # print
+  "FBT001", # boolean-type-hint-positional-argument
+  "FBT002", # boolean-default-value-positional-argument
+  "S603",   # subprocess-without-shell-equals-true
+  "S607",   # start-process-with-partial-path
+  "T201",   # print
 ]
 "tests/*.py" = [
-    "PLR2004", # magic-value-comparison
-    "S101",    # assert
+  "PLR2004", # magic-value-comparison
+  "S101",    # assert
 ]
 
 [tool.ruff.lint.mccabe]
