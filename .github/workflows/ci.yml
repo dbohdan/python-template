@@ -5,23 +5,26 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13", "pypy3.10"]
         os: ["macos-latest", "ubuntu-latest", "windows-latest"]
     steps:
       - name: 'Disable `autocrlf` in Git'
         run: git config --global core.autocrlf false
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          version: '0.6.6'
+
       - name: Install dependencies
         run: |
-          pipx install copier
-          pipx install poethepoet
-          pipx install poetry
-          pipx install pre-commit
-          pipx install tox
+          uv tool install copier
+          uv tool install poethepoet
+          uv tool install pre-commit
+          uv tool install tox --with tox-uv
+
       - name: Test
         run: |
-          python3 test.py
+          uv run test.py

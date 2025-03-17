@@ -44,8 +44,8 @@ def main() -> None:
 
     os.chdir(root / TEST_DIR)
     try:
-        run("poetry", "install")
-        run("poetry", "run", "baz")
+        run("uv", "sync")
+        run("uv", "run", DATA["package_name"])
 
         run("poe", DATA["package_name"])
         run("poe", "check")
@@ -60,7 +60,12 @@ def main() -> None:
         run("git", "config", "user.name", "User")
         run("git", "commit", "-a", "-m", "Initial commit")
     finally:
-        run("poetry", "env", "remove", "--all")
+        venv_path = Path(".venv")
+        if venv_path.exists():
+            try:
+                shutil.rmtree(venv_path)
+            except Exception:
+                pass
 
     run("tox")
 
