@@ -63,7 +63,6 @@ def main() -> None:
         run("poetry", "env", "remove", "--all")
 
     run("tox")
-    run("nox", "--no-error-on-missing-interpreters")
 
 
 if __name__ == "__main__":

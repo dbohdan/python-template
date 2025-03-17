@@ -18,7 +18,6 @@ jobs:
       - name: Install dependencies
         run: |
           pipx install copier
-          pipx install nox
           pipx install poethepoet
           pipx install poetry
           pipx install pre-commit

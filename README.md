@@ -34,21 +34,13 @@ using the template requires:
 - (Optional) [pre-commit](https://pre-commit.com/)&thinsp;&mdash;&thinsp;Git pre-commit check runner.
   When you create a Git repository for a rendered template,
   run the command `pre-commit install` in it.
-- (Optional)
-  Either
-  [tox](https://tox.wiki/)
-  or
-  [nox](https://nox.thea.codes/)&thinsp;&mdash;&thinsp;test automation.
-  I have included both
-  with the assumption that
-  any project will keep only one of them.
+- (Optional) [tox](https://tox.wiki/)
 
 The recommended way to install the requirements is with
 [pipx](https://github.com/pypa/pipx):
 
 ```shell
 pipx install copier
-pipx install nox
 pipx install poethepoet
 pipx install poetry
 pipx install pre-commit
