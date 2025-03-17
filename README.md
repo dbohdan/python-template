@@ -18,7 +18,7 @@ and the maintainer is likely to reject contributions.
 
 ## Requirements
 
-Python &ge; 3.9
+Python &ge; 3.19
 and
 [Copier](https://github.com/copier-org/copier)
 are required to render the template.
