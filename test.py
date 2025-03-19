@@ -62,10 +62,7 @@ def main() -> None:
     finally:
         venv_path = Path(".venv")
         if venv_path.exists():
-            try:
-                shutil.rmtree(venv_path)
-            except Exception:
-                pass
+            shutil.rmtree(venv_path)
 
     run("tox")
 
