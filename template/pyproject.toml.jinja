@@ -39,7 +39,6 @@ dev = [
 include = [
   "src/",
   "scripts/",
-  "tox.ini",
   "tests/",
 ]
 
@@ -183,5 +182,25 @@ max-complexity = 21
 max-args = 8
 max-branches = 20
 max-statements = 100
+
+[tool.tox]
+isolated_build = true
+requires = ["tox>=4.19"]
+env_list = [
+  "py310",
+  "py311",
+  "py312",
+  "py313",
+  "pypy310",
+]
+
+[tool.tox.env.testenv]
+description = "run tests"
+deps = [
+  "pytest>=8,<9",
+]
+commands = [
+  ["pytest"],
+]
 
 [tool.uv]
