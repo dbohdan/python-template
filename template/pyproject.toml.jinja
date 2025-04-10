@@ -184,8 +184,10 @@ max-branches = 20
 max-statements = 100
 
 [tool.tox]
-isolated_build = true
-requires = ["tox>=4.19"]
+requires = [
+  "tox>=4.24.1",
+  "tox-uv>=1.23",
+]
 env_list = [
   "py310",
   "py311",
@@ -195,7 +197,7 @@ env_list = [
   "pypy311",
 ]
 
-[tool.tox.env.testenv]
+[tool.tox.env_run_base]
 description = "run tests"
 deps = [
   "pytest>=8,<9",
