@@ -10,7 +10,6 @@ and the maintainer is likely to reject contributions.
 
 - [Requirements](#requirements)
 - [Assumptions](#assumptionS)
-    - [A note on PyTorch](#a-note-on-pytorch)
 - [Included tooling](#included-tooling)
 - [Testing](#testing)
 - [License](#license)
