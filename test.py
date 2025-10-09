@@ -64,7 +64,12 @@ def main() -> None:
         if venv_path.exists():
             shutil.rmtree(venv_path)
 
-    run("tox")
+    try:
+        run("tox")
+    finally:
+        tox_path = Path(".tox")
+        if tox_path.exists():
+            shutil.rmtree(tox_path)
 
 
 if __name__ == "__main__":
