@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import platform
 import shutil
 import subprocess as sp
 from pathlib import Path
@@ -10,6 +11,7 @@ from pathlib import Path
 DATA = {
     "project_slug": "foo",
     "package_name": "baz",
+    "system": platform.system(),
 }
 TEST_DIR = "test"
 

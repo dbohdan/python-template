@@ -28,10 +28,14 @@ classifiers = [
 [dependency-groups]
 dev = [
   "codespell>=2,<3",
+{%- if system != "FreeBSD" %}
   "pyright==1.1.406",
+{%- endif %}
   "pytest>=8,<9",
   "pytest-cov>=4.1.0,<5",
+{%- if system != "FreeBSD" %}
   "ruff==0.14.0",
+{%- endif %}
   "shiv>=1.0.4,<2",
 ]
 
@@ -186,7 +190,9 @@ max-statements = 100
 [tool.tox]
 requires = [
   "tox>=4.24.1",
+{%- if system != "FreeBSD" %}
   "tox-uv>=1.23",
+{%- endif %}
 ]
 env_list = [
   "py310",
@@ -199,6 +205,12 @@ env_list = [
 ]
 
 [tool.tox.env_run_base]
+{%- if system == "FreeBSD" %}
+allowlist_externals = [
+  "pyright",
+  "ruff",
+]
+{%- endif %}
 description = "run tests"
 deps = [
   "pytest>=8,<9",
