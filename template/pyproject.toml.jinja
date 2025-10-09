@@ -7,7 +7,7 @@ name = "{{ project_slug }}"
 version = "0.1.0"
 description = "Do a thing."
 authors = [{ name = "D. Bohdan", email = "dbohdan@dbohdan.com" }]
-requires-python = "~=3.10"
+requires-python = ">=3.10"
 readme = "README.md"
 license = { text = "Proprietary" }
 # repository = "https://gitlab.com/dbohdan/{{ project_slug }}"
@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 [project.scripts]
-baz = "baz.main:main"
+"{{ package_name }}" = "{{ package_name }}.main:main"
 
 [dependency-groups]
 dev = [
@@ -43,10 +43,10 @@ include = [
 ]
 
 [tool.hatch.build.targets.wheel]
-include = ["src/baz"]
+include = ["src/{{ package_name }}"]
 
 [tool.hatch.build.targets.wheel.sources]
-"src/baz" = "baz"
+"src/{{ package_name }}" = "{{ package_name }}"
 
 [tool.codespell]
 quiet-level = 3
