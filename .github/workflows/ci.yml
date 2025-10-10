@@ -24,7 +24,16 @@ jobs:
           version: ${{ matrix.os.version }}
           shell: bash
           run: |
-            sudo pkg install -y devel/py-copier devel/py-pre-commit devel/py-pyright devel/py-ruff devel/py-tox git node24 uv
+            sudo pkg install -y \
+              devel/py-copier \
+              devel/py-pre-commit \
+              devel/py-pyright \
+              devel/py-ruff \
+              devel/py-tox \
+              git \
+              node24 \
+              uv \
+              ;
 
             export PATH="$HOME"/.local/bin:"$PATH"
             uv self version
