@@ -9,11 +9,6 @@ jobs:
       matrix:
         os:
           - name: freebsd
-            architecture: arm64
-            version: '14.3'
-            host: ubuntu-latest
-
-          - name: freebsd
             architecture: x86-64
             version: '14.3'
             host: ubuntu-latest
