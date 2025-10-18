@@ -8,9 +8,27 @@ import shutil
 import subprocess as sp
 from pathlib import Path
 
+def get_git_user_info() -> tuple[str, str]:
+    try:
+        name = sp.check_output(
+            ["git", "config", "user.name"],
+            text=True
+        ).strip()
+        email = sp.check_output(
+            ["git", "config", "user.email"],
+            text=True
+        ).strip()
+        return name, email
+    except sp.CalledProcessError:
+        return "Test User", "test@example.com"
+
+author_name, author_email = get_git_user_info()
+
 DATA = {
-    "project_slug": "foo",
+    "author_email": author_email,
+    "author_name": author_name,
     "package_name": "baz",
+    "project_slug": "foo",
     "system": platform.system(),
 }
 TEST_DIR = "test"

@@ -5,3 +5,11 @@ project_slug:
 package_name:
     type: str
     help: Package name?
+
+author_name:
+    type: str
+    help: Author name?
+
+author_email:
+    type: str
+    help: Author email?
