@@ -28,6 +28,7 @@ DATA = {
     "author_email": author_email,
     "author_name": author_name,
     "package_name": "baz",
+    "project_name": "Foo",
     "project_slug": "foo",
     "system": platform.system(),
 }

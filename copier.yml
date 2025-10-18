@@ -1,10 +1,18 @@
+_subdirectory: template/
+
+project_name:
+    type: str
+    help: Project name?
+
 project_slug:
     type: str
     help: Project slug?
+    default: '{{ project_name | lower | replace(" ", "-") }}'
 
 package_name:
     type: str
     help: Package name?
+    default: '{{ project_name | lower | replace(" ", "_") }}'
 
 author_name:
     type: str

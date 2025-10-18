@@ -3,6 +3,6 @@ from __future__ import annotations
 import {{ package_name }}
 
 
-class Test{{ package_name | capitalize }}:
+class Test{{ project_name | replace(" ", "") }}:
     def test_basic(self) -> None:
         assert {{ package_name }}.bar()
