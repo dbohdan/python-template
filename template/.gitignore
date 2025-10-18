@@ -8,3 +8,7 @@ __pycache__
 /attic
 /build
 /dist
+
+*.~*
+*.bak
+*.swp
