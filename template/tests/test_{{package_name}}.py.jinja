@@ -3,6 +3,6 @@ from __future__ import annotations
 import {{ package_name }}
 
 
-class Test{{ project_name | replace(" ", "") }}:
+class Test{{ package_name | replace("_", " ") | title | replace(" ", "") }}:
     def test_basic(self) -> None:
         assert {{ package_name }}.bar()
